@@ -32,6 +32,7 @@ class UpdateProjectRequest extends FormRequest
             'summary' => ['sometimes', 'required', 'string', 'max:255'],
             'description' => ['sometimes', 'nullable', 'string'],
             'role' => ['sometimes', 'nullable', 'string', 'max:255'],
+            'type' => ['sometimes', 'nullable', 'string', 'max:60'],
             'problem' => ['sometimes', 'nullable', 'string'],
             'solution' => ['sometimes', 'nullable', 'string'],
             'key_features' => ['sometimes', 'nullable', 'array', 'max:10'],

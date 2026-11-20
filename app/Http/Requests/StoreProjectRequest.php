@@ -29,6 +29,7 @@ class StoreProjectRequest extends FormRequest
             'summary' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
             'role' => ['nullable', 'string', 'max:255'],
+            'type' => ['nullable', 'string', 'max:60'],
             'problem' => ['nullable', 'string'],
             'solution' => ['nullable', 'string'],
             'key_features' => ['nullable', 'array', 'max:10'],

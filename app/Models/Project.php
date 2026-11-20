@@ -13,6 +13,7 @@ class Project extends Model
         'summary',
         'description',
         'role',
+        'type',
         'problem',
         'solution',
         'key_features',

@@ -8,6 +8,8 @@ use App\Http\Controllers\Api\V1\ProjectController;
 use App\Http\Controllers\Api\V1\ProjectViewController;
 use App\Http\Controllers\Api\V1\ReactionController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+
 
 Route::prefix('v1')->group(function () {
     Route::get('/health', function () {
@@ -37,4 +39,9 @@ Route::prefix('admin')->middleware('admin.token')->group(function () {
     Route::patch('/impressions/{impression}/hide', [ModerationController::class, 'hide']);
     Route::patch('/impressions/{impression}/show', [ModerationController::class, 'show']);
     Route::delete('/impressions/{impression}', [ModerationController::class, 'destroy']);
+
+    Route::post('/rollup', function () {
+        Artisan::call('stats:rollup');
+        return response()->json(['ok' => true, 'output' => trim(Artisan::output())]);
+    });
 });
